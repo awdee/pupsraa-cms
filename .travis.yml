@@ -19,3 +19,5 @@ before_script:
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
   - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
+  
+script: phpunit
