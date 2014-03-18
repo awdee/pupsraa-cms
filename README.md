@@ -10,3 +10,5 @@ A light-weight CMS tailored by a bunch of [PUP-SRC Web Enthusiasts](https://gith
 * News and Events Archive
 * Alumni Connect
 * Donation Engine
+* Directory of Speakers for conferences and events
+* Online Store
