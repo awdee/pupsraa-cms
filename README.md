@@ -13,5 +13,6 @@ A light-weight CMS tailored by a bunch of [PUP-SRC Web Enthusiasts](https://gith
 * Tally Sheets and Bargraph Representation of Donations per Course
 * Directory of Speakers for Conferences and Events
 * Dynamic Alumni Homecoming Countdown
+* Reservation system for Alumni Homecoming and Other Events
 * Online Shop for Organization Shirts, etc..
 * Merchant Partners
