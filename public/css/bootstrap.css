@@ -6346,6 +6346,7 @@ button.close {
   display: none;
   -webkit-transition: 0.6s ease-in-out left;
           transition: 0.6s ease-in-out left;
+
 }
 
 .carousel-inner > .item > img,
@@ -6406,6 +6407,7 @@ button.close {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   opacity: 0.5;
   filter: alpha(opacity=50);
+  background-image: none !important;
 }
 
 .carousel-control.left {

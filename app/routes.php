@@ -10,9 +10,7 @@ Route::pattern('username', '[a-z0-9_-]{3,16}');
 
 Route::get('index', [ 'as' => 'browse.underconstruct', 'uses' => 'HomeController@showUnderconstruct' ]);
 Route::get('/', [ 'as' => 'browse.home', 'uses' => 'HomeController@showHome' ]);
-Route::get('connect', [ 'as' => 'browse.connect', 'uses' => 'HomeController@showHome' ]);
-Route::get('give', [ 'as' => 'browse.give', 'uses' => 'HomeController@showHome' ]);
-Route::get('news', [ 'as' => 'browse.news', 'uses' => 'HomeController@showHome' ]);
-Route::get('membership', [ 'as' => 'browse.membership', 'uses' => 'HomeController@showHome' ]);
-Route::get('organization', [ 'as' => 'browse.organization', 'uses' => 'HomeController@showHome' ]);
-Route::get('contact', [ 'as' => 'browse.contact', 'uses' => 'HomeController@showHome' ]);
+Route::get('whats-up', [ 'as' => 'browse.whats-up', 'uses' => 'WhatsUpController@showWhatsUp' ]);
+Route::get('donate', [ 'as' => 'browse.donate', 'uses' => 'DonateController@showDonate' ]);
+Route::get('register', [ 'as' => 'browse.register', 'uses' => 'RegisterController@showRegister' ]);
+Route::get('contact-us', [ 'as' => 'browse.contact-us', 'uses' => 'ContactUsController@showContactUs' ]);

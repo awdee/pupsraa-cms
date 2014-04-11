@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'database',
+			'host'      => '127.0.0.1',
+			'database'  => 'pupsra1_live_db',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'bakerking123',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
