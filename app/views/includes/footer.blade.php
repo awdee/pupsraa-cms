@@ -38,11 +38,6 @@
                                     Fill Up Form
                                     </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    Donation Tally Sheet
-                                    </a>
-                            </li>
                         </ul>
                     </p>
                 </div>
