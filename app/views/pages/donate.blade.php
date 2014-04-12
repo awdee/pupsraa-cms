@@ -37,7 +37,6 @@
             </div>
             <div class="grid-65">
                 <div class="page-container">
-                    {{ Form::open(array('url' => 'foo/bar')) }}
                     <h2 class="title-header">Donation Form</h2>
                     <table>
                         <tr>
@@ -75,13 +74,13 @@
                         <tr class="table-section">
                             <td class="form-label">Email Address:</td>
                             <td>
-                                <input class="form-control" type="text" id="email_address" id="email_address">
+                                <input class="form-control" type="text" id="email" id="email">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Contact Number:</td>
                             <td>
-                                <input class="form-control" type="text" id="contact_number" id="contact_number">
+                                <input class="form-control" type="text" id="contact" id="contact">
                             </td>
                         </tr>
                         <tr>
@@ -380,7 +379,7 @@
                         <tr>
                             <td class="form-label">Amount:</td>
                             <td>
-                                <input class="form-control" type="text" id="amount" id="amount">
+                                <input class="form-control" type="text" id="contact" id="contact">
                             </td>
                         </tr>
                         <tr>
@@ -388,13 +387,7 @@
                             </td>
                         </tr>
                         <tr class="table-section">
-                            <?php
-                            use Gregwar\Captcha\CaptchaBuilder;
-                            $builder = new CaptchaBuilder;
-                            $builder->build(); 
-                            Session::put('phrase', $builder->getPhrase());
-                            ?>
-                            <td class="form-label"><img src="<?php echo $builder->inline(); ?>" /></td>
+                            <td class="form-label">&nbsp;</td>
                             <td>
                                 <input class="form-control" type="text" id="contact" id="contact">
                             </td>
@@ -402,10 +395,9 @@
                     </table>
                     <hr>
                     <center>
-                        <button class="sun2-flower-button">Reset Fields</button>
-                        <button type="submit" class="lei-flat-button">Submit</button>
+                        <a class="btn-warning btn-lg">Reset Fields</a>
+                        <a class="btn-red btn-lg">Submit</a>
                     </center>
-                    {{ Form::close() }}
                 </div>
             </div>
             <div class="grid-15">
