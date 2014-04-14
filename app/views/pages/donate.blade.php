@@ -37,7 +37,14 @@
             </div>
             <div class="grid-65">
                 <div class="page-container">
+                    {{ Form::open(array('url' => 'donate/submit')) }}
                     <h2 class="title-header">Donation Form</h2>
+                    @if(Session::has('error'))
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ Session::get('error') }}
+                    </div>
+                    @endif
                     <table>
                         <tr>
                             <td colspan="2"><b>Personal Information</b>
@@ -46,25 +53,25 @@
                         <tr class="table-section">
                             <td align="right">First Name:</td>
                             <td>
-                                <input class="form-control" type="text" id="first_name" id="first_name">
+                                <input class="form-control" type="text" id="first_name" name="first_name" value="{{ Input::old('first_name') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Middle Name:</td>
                             <td>
-                                <input class="form-control" type="text" id="middle_name" id="middle_name">
+                                <input class="form-control" type="text" id="middle_name" name="middle_name" value="{{ Input::old('middle_name') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Last Name:</td>
                             <td>
-                                <input class="form-control" type="text" id="last_name" id="last_name">
+                                <input class="form-control" type="text" id="last_name" name="last_name" value="{{ Input::old('last_name') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Organization:</td>
                             <td>
-                                <input class="form-control" type="text" id="organization" id="organization">
+                                <input class="form-control" type="text" id="organization" name="organization" value="{{ Input::old('organization') }}">
                             </td>
                         </tr>
                         <tr>
@@ -74,37 +81,37 @@
                         <tr class="table-section">
                             <td class="form-label">Email Address:</td>
                             <td>
-                                <input class="form-control" type="text" id="email" id="email">
+                                <input class="form-control" type="text" id="email_address" name="email_address" value="{{ Input::old('email_address') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Contact Number:</td>
                             <td>
-                                <input class="form-control" type="text" id="contact" id="contact">
+                                <input class="form-control" type="text" id="contact_number" name="contact_number" value="{{ Input::old('contact_number') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Mailing Address:</td>
                             <td>
-                                <input class="form-control" type="text" id="mailing_address" id="mailing_address">
+                                <input class="form-control" type="text" id="mailing_address" name="mailing_address" value="{{ Input::old('mailing_address') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">City:</td>
                             <td>
-                                <input class="form-control" type="text" id="city" id="city">
+                                <input class="form-control" type="text" id="city" name="city" value="{{ Input::old('city') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">ZIP Code:</td>
                             <td>
-                                <input class="form-control" type="text" id="zip_code" id="zip_code">
+                                <input class="form-control" type="text" id="zip_code" name="zip_code" value="{{ Input::old('zip_code') }}">
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Country:</td>
                             <td>
-                                <select class="form-control" size="1" title="" name="country">
+                                <select class="form-control" size="1" title="" name="country" value="{{ Input::old('country') }}">
                                     <option value="">Please select a country</option>
                                     <option value="AF">Afghanistan</option>
                                     <option value="AX">Åland Islands</option>
@@ -360,26 +367,32 @@
                         <tr class="table-section">
                             <td align="right">Donator Type:</td>
                             <td>
-                                <select class="form-control" size="1" title="" name="country">
+                                <select class="form-control" size="1" title="" name="donator_type">
                                     <option value="">Please choose one..</option>
-                                    <option value="">Alumni</option>
-                                    <option value="">Friend</option>
+                                    <option value="Alumni">Alumni</option>
+                                    <option value="Friend">Friend</option>
                                 </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">Donator Description:</td>
+                            <td>
+                                <input class="form-control" type="text" id="donator_desc" name="donator_desc">
                             </td>
                         </tr>
                         <tr>
                             <td align="right">Project:</td>
                             <td>
-                                <select class="form-control" size="1" title="" name="country">
+                                <select class="form-control" size="1" title="" name="project">
                                     <option value="">Select a project..</option>
-                                    <option value="">Oplan Panulat</option>
+                                    <option value="oplan-panulat">Oplan Panulat</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td class="form-label">Amount:</td>
                             <td>
-                                <input class="form-control" type="text" id="contact" id="contact">
+                                <input class="form-control" type="text" id="amount" name="amount">
                             </td>
                         </tr>
                         <tr>
@@ -387,17 +400,24 @@
                             </td>
                         </tr>
                         <tr class="table-section">
-                            <td class="form-label">&nbsp;</td>
+                            <?php
+                            use Gregwar\Captcha\CaptchaBuilder;
+                            $builder = new CaptchaBuilder;
+                            $builder->build(); 
+                            Session::put('phrase', $builder->getPhrase());
+                            ?>
+                            <td class="form-label"><img src="<?php echo $builder->inline(); ?>" /></td>
                             <td>
-                                <input class="form-control" type="text" id="contact" id="contact">
+                                <input class="form-control" type="text" id="captcha" name="captcha">
                             </td>
                         </tr>
                     </table>
                     <hr>
                     <center>
-                        <a class="btn-warning btn-lg">Reset Fields</a>
-                        <a class="btn-red btn-lg">Submit</a>
+                        <button class="sun2-flower-button">Reset Fields</button>
+                        <button type="submit" class="lei-flat-button">Submit</button>
                     </center>
+                    {{ Form::close() }}
                 </div>
             </div>
             <div class="grid-15">
