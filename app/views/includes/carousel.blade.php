@@ -17,10 +17,10 @@
                             PUPCET Oplan Panulat
                         </b>
                     <p>
-                        It's time to touch lives PUPians! Please support OPLAN PANULAT, a project of the Polytechnic University of the Philippines Santa Rosa Alumni Association, Inc. (PUPSRAAI). <a class="carousel-link" href="">Read More..</a>
+                        It's time to touch lives PUPians! Please support OPLAN PANULAT, a project of the Polytechnic University of the Philippines Santa Rosa Alumni Association, Inc. (PUPSRAAI). <a class="carousel-link" href="{{ url('whats-up/projects/1') }}">Read More..</a>
                     </p>
                 </div>
-                <img src="img/oplan_panulat_small_black.jpg" alt="...">
+                <img src="{{ asset('img/oplan_panulat_small_black.jpg') }}" alt="...">
                 <div class="carousel-caption">
                 </div>
             </div>
@@ -32,10 +32,10 @@
                             Oath Taking of Newly Elected Officers
                         </b>
                     <p>
-                        Dictado I Resort, Brgy Market Area, City of Santa Rosa Laguna <a class="carousel-link" href="">Read More..</a>
+                        Dictado I Resort, Brgy Market Area, City of Santa Rosa Laguna <a class="carousel-link" href="{{ url('whats-up/news/1') }}">Read More..</a>
                     </p>
                 </div>
-                <img src="img/oath_taking.jpg" alt="...">
+                <img src="{{ asset('img/oath_taking.jpg') }}" alt="...">
                 <div class="carousel-caption">
                 </div>
             </div>

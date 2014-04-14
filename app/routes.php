@@ -11,7 +11,11 @@ Route::pattern('username', '[a-z0-9_-]{3,16}');
 Route::get('index', [ 'as' => 'browse.underconstruct', 'uses' => 'HomeController@showUnderconstruct' ]);
 Route::get('/', [ 'as' => 'browse.home', 'uses' => 'HomeController@showHome' ]);
 Route::get('whats-up', [ 'as' => 'browse.whats-up', 'uses' => 'WhatsUpController@showWhatsUp' ]);
+
 Route::get('donate', [ 'as' => 'browse.donate', 'uses' => 'DonateController@showDonate' ]);
+Route::get('donate/procedure', [ 'as' => 'browse.procedure', 'uses' => 'DonateController@showProcedure' ]);
+Route::get('donate/tally', [ 'as' => 'browse.tally', 'uses' => 'DonateController@showProcedure' ]);
 Route::post('donate/submit', [ 'as' => 'browse.donate', 'uses' => 'DonateController@storeDonate' ]);
+
 Route::get('register', [ 'as' => 'browse.register', 'uses' => 'RegisterController@showRegister' ]);
 Route::get('contact-us', [ 'as' => 'browse.contact-us', 'uses' => 'ContactUsController@showContactUs' ]);

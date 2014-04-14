@@ -10,6 +10,11 @@ class DonateController extends BaseController
         return View::make('pages.donate');
     }
 
+    public function showProcedure()
+    {
+        return View::make('pages.procedure');
+    }
+
     public function storeDonate() 
     {
         if(Session::get('phrase') != Input::get('captcha')) {
@@ -18,6 +23,13 @@ class DonateController extends BaseController
                 ->withInput(Input::except('captcha'));
         }
 
+        if(Input::get('donator_type') == 'Alumni') {
+            $donator_desc = 'COURSE:'.Input::get('donator_course').' YEAR:'.Input::get('donator_year');
+        }
+        else if(Input::get('donator_type') == 'Friend') {
+            $donator_desc = Input::get('friend_name');
+        }
+        
         Donation::create([
             'first_name' => Input::get('first_name'),
             'middle_name' => Input::get('middle_name'),
@@ -30,7 +42,7 @@ class DonateController extends BaseController
             'zip_code' => Input::get('zip_code'),
             'country' => Input::get('country'),
             'donator_type' => Input::get('donator_type'),
-            'donator_desc' => Input::get('donator_desc'),
+            'donator_desc' => $donator_desc,
             'project' => Input::get('project'),
             'ip_address' => Request::getClientIp(),
             'amount' => Input::get('amount')
