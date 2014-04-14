@@ -24,19 +24,19 @@
 
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active" style="border-bottom: 1px solid #ddd;">
-                            <a href="#">
-                          News
-                        </a>
+                            <a href="{{ url('whats-up') }}">
+                            News
+                            </a>
                         </li>
                         <li class="" style="border-bottom: 1px solid #ddd;">
-                            <a href="#">
-                          Alumni Projects
-                        </a>
+                            <a href="{{ url('whats-up/projects') }}">
+                            Alumni Projects
+                            </a>
                         </li>
                         <li class="" style="border-bottom: 1px solid #ddd;">
-                            <a href="#">
-                          Events
-                        </a>
+                            <a href="{{ url('whats-up/events') }}">
+                            Events
+                            </a>
                         </li>
                     </ul>
                 </div>

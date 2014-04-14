@@ -23,22 +23,30 @@
                     <h4>Related Links</h4>
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active" style="border-bottom: 1px solid #ddd;">
-                            <a href="#">
-                          Donate
-                        </a>
+                            <a href="{{ url('donate') }}">
+                            Donate
+                            </a>
                         </li>
                         <li style="border-bottom: 1px solid #ddd;">
-                            <a href="#">
-                          Donation Tally Sheet
-                        </a>
+                            <a href="{{ url('donate/procedure') }}">
+                            Donation Procedure
+                            </a>
+                        </li>
+                        <li style="border-bottom: 1px solid #ddd;">
+                            <a href="{{ url('donate/tally') }}">
+                            Donation Tally Sheet
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="grid-65">
                 <div class="page-container">
-                    {{ Form::open(array('url' => 'donate/submit')) }}
+                    {{ Form::open(array('url' => 'donate/submit', 'id' => 'donation-form', 'name' => 'donation-form')) }}
                     <h2 class="title-header">Donation Form</h2>
+                    <div class="alert alert-warning alert-dismissable">
+                    Make sure you have your deposit slip with you before proceeding. Click <a href="{{ url('donate/procedure') }}" target="_blank">here</a> for the donation procedure.
+                    </div>
                     @if(Session::has('error'))
                     <div class="alert alert-danger alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -374,10 +382,34 @@
                                 </select>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="form-label">Donator Description:</td>
+                        <tr id="friend">
+                            <td class="form-label">Friend's Name:</td>
                             <td>
-                                <input class="form-control" type="text" id="donator_desc" name="donator_desc">
+                                <input class="form-control" type="text" id="friend_name" name="friend_name">
+                            </td>
+                        </tr>
+                        <tr id="alumni_course">
+                            <td class="form-label">Course:</td>
+                            <td>
+                                <select class="form-control" size="1" title="" name="donator_course">
+                                    <option value="">Please choose one..</option>
+                                    <option value="BS in Accountancy">BS in Accountancy</option>
+                                    <option value="BS in Business Administration - HRDM">BS in Business Administration - HRDM</option>
+                                    <option value="BS in Business Administration - Marketing Management">BS in Business Administration - Marketing Management</option>
+                                    <option value="BS in Electronics & Communications Engineering">BS in Electronics & Communications Engineering</option>
+                                    <option value="BS in Entrepreneurial Management">BS in Entrepreneurial Management</option>
+                                    <option value="BS in Information Technology">BS in Information Technology</option>
+                                    <option value="BS in Industrial Engineering">BS in Industrial Engineering</option>
+                                    <option value="Bachelor in Secondary Education - Major in English">Bachelor in Secondary Education - Major in English</option>
+                                    <option value="Bachelor in Secondary Education - Major in Math">Bachelor in Secondary Education - Major in Math</option>
+                                    <option value="BS in Clinical Psychology">BS in Clinical Psychology</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="alumni_year">
+                            <td class="form-label">Year Graduated:</td>
+                            <td>
+                                <input class="form-control" type="text" id="donator_year" name="donator_year">
                             </td>
                         </tr>
                         <tr>
@@ -387,6 +419,7 @@
                                     <option value="">Select a project..</option>
                                     <option value="oplan-panulat">Oplan Panulat</option>
                                 </select>
+                                <small><a title="Select your preferred alumni project" href="{{ url('whats-up/projects') }}" target="_top">View Alumni Projects</a></small>
                             </td>
                         </tr>
                         <tr>
@@ -430,7 +463,9 @@
     $("document").ready(function () {
         $(".caption-text").fadeTo("fast", 0.5);
         $(".caption-black").fadeTo("fast", 0.5);
-
+        $("#friend").hide();
+        $("#alumni_course").hide();
+        $("#alumni_year").hide();
     });
     $(".carousel").hover(function () {
         $(".caption-text").fadeTo("fast", 0.8);
@@ -438,6 +473,23 @@
     }, function () {
         $(".caption-text").fadeTo("fast", 0.5);
         $(".caption-black").fadeTo("fast", 0.5);
+    });
+    $('select[name="donator_type"]').on('change', function() {
+        if($('select[name="donator_type"]').val()=="Alumni") {
+            $("#alumni_course").fadeIn();
+            $("#alumni_year").fadeIn();
+            $("#friend").hide();
+        }
+        else if($('select[name="donator_type"]').val()=="Friend") {
+            $("#alumni_course").hide();
+            $("#alumni_year").hide();
+            $("#friend").fadeIn();
+        }
+        else {
+            $("#alumni_course").hide();
+            $("#alumni_year").hide();
+            $("#friend").hide();
+        }
     });
 </script>
 </html>

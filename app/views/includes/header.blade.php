@@ -3,28 +3,28 @@
     <!--Responsive Navigation-->
     <div class="clearfix res-nav">
         <ul class="clearfix">
-            <li>
-                <a href="/">
+            <li class="hide-search">
+                <a href="{{ url('/') }}">
                     Home
                     </a>
             </li>
             <li>
-                <a href="whats-up">
+                <a href="{{ url('whats-up') }}">
                     What's Up?
                     </a>
             </li>
             <li>
-                <a href="donate">
+                <a href="{{ url('donate') }}">
                     Donate
                     </a>
             </li>
             <li>
-                <a href="register">
+                <a href="{{ url('register') }}">
                     Register
                     </a>
             </li>
             <li>
-                <a href="contact-us">
+                <a href="{{ url('contact-us') }}">
                     Contact Us
                     </a>
             </li>
@@ -35,7 +35,7 @@
     <!--End of res nav-->
     <div id="header-container">
         <div class="logo-container">
-            <img src="img/pup-logo.png">
+            <img src="{{ asset('img/pup-logo.png') }}">
         </div>
         <div class="title">
             <span class="pup-title">
@@ -51,27 +51,27 @@
         <div class="clearfix menu-nav">
             <ul class="clearfix">
                 <li class="hide-search">
-                    <a href="index.php">
+                    <a href="{{ url('/') }}">
                         Home
                         </a>
                 </li>
                 <li class="hide-search">
-                    <a href="whats-up">
+                    <a href="{{ url('whats-up') }}">
                         What's Up?
                         </a>
                 </li>
                 <li class="hide-search">
-                    <a href="donate">
+                    <a href="{{ url('donate') }}">
                         Donate
                         </a>
                 </li>
                 <li class="hide-search">
-                    <a href="register">
+                    <a href="{{ url('register') }}">
                         Register
                         </a>
                 </li>
                 <li class="hide-search">
-                    <a href="contact-us">
+                    <a href="{{ url('contact-us') }}">
                         Contact Us
                         </a>
                 </li>

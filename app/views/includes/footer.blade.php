@@ -11,17 +11,17 @@
                     </p>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('whats-up/news') }}">
                                     News
                                     </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('whats-up/projects') }}">
                                     Alumni Projects
                                     </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('whats-up/events') }}">
                                     Events
                                     </a>
                         </li>
@@ -34,12 +34,17 @@
                                 </b>
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{ url('donate') }}">
                                     Fill Up Form
                                     </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ url('donate/procedure') }}">
+                                    Payment Procedure
+                                    </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('donate/tally') }}">
                                     Donation Tally Sheet
                                     </a>
                             </li>
@@ -54,12 +59,12 @@
                     </p>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('register/alumni') }}">
                                     As Alumni
                                     </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('register/speaker') }}">
                                     As Resource Speaker
                                     </a>
                         </li>
@@ -73,24 +78,19 @@
                     </p>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('contact-us') }}">
                                     Map
                                     </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('contact-us/list') }}">
                                     Contact List
-                                    </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                    History
                                     </a>
                         </li>
                     </ul>
                 </div>
                 <div class="grid-20 mobile-grid-100 footer-menu-img">
-                    <img src="img/pup-logo-white.png">
+                    <img src="{{ asset('img/pup-logo-white.png') }}">
                 </div>
             </div>
         </div>
