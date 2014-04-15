@@ -19,21 +19,20 @@
     <div class="wrap">
         <div class="grid-container">
             <div class="grid-20">
-                <div class="nav-sidebar" style="margin-top:40px; text-align:right;">
+                <div class="nav-sidebar">
                     <h4>Related Links</h4>
-
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active" style="border-bottom: 1px solid #ddd;">
+                    <ul class="nav nav-pills nav-stacked rel-links">
+                        <li class="active">
                             <a href="{{ url('whats-up') }}">
                             News
                             </a>
                         </li>
-                        <li class="" style="border-bottom: 1px solid #ddd;">
+                        <li>
                             <a href="{{ url('whats-up/projects') }}">
                             Alumni Projects
                             </a>
                         </li>
-                        <li class="" style="border-bottom: 1px solid #ddd;">
+                        <li>
                             <a href="{{ url('whats-up/events') }}">
                             Events
                             </a>
@@ -44,8 +43,12 @@
             <div class="grid-45">
                 <div class="page-container">
                     <h2 class="title-header">Latest News</h2>
-                    <h3>Testimonial Program for Board Passers</h3>
+                    <h3>Oath Taking of Officers</h3>
+                    <i>February 8, 2014</i>
+                    <hr>
+                    <img src="{{ asset('img/oath_taking.jpg') }}">
                     <p>
+                        
                     </p>
                 </div>
             </div>

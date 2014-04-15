@@ -19,20 +19,20 @@
     <div class="wrap">
         <div class="grid-container">
             <div class="grid-20">
-                <div class="nav-sidebar" style="margin-top:40px; text-align:right;">
+                <div class="nav-sidebar">
                     <h4>Related Links</h4>
-                    <ul class="nav nav-pills nav-stacked">
-                        <li style="border-bottom: 1px solid #ddd;">
+                    <ul class="nav nav-pills nav-stacked rel-links">
+                        <li>
                             <a href="{{ url('donate') }}">
                             Donate
                             </a>
                         </li>
-                        <li class="active" style="border-bottom: 1px solid #ddd;">
+                        <li class="active">
                             <a href="{{ url('donate/procedure') }}">
                             Donation Procedure
                             </a>
                         </li>
-                        <li style="border-bottom: 1px solid #ddd;">
+                        <li>
                             <a href="{{ url('donate/tally') }}">
                             Donation Tally Sheet
                             </a>
