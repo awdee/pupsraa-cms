@@ -953,3 +953,7 @@ td { padding-right: 10px; padding-top: 15px; vertical-align: top;}
 
 table.table-donation > tr > td { padding: 0px; margin: 0px; }
 .tb-title { width: 150px; }
+.nav-sidebar { margin-top:40px; text-align:right; }
+.rel-links > li { border-bottom: 1px solid #ddd; }
+.social-32 { height:32px; width:32px; }
+.officer-thumb { height:96px; width:96px; }

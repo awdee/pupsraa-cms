@@ -19,16 +19,15 @@
     <div class="wrap">
         <div class="grid-container">
             <div class="grid-20">
-                <div class="nav-sidebar" style="margin-top:40px; text-align:right;">
+                <div class="nav-sidebar">
                     <h4>Related Links</h4>
-
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active" style="border-bottom: 1px solid #ddd;">
+                    <ul class="nav nav-pills nav-stacked rel-links">
+                        <li class="active">
                             <a href="{{ url('contact-us') }}">
                           Map
                         </a>
                         </li>
-                        <li style="border-bottom: 1px solid #ddd;">
+                        <li>
                             <a href="{{ url('contact-us/list') }}">
                           Contact List
                         </a>

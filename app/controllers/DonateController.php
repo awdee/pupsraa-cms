@@ -23,13 +23,15 @@ class DonateController extends BaseController
                 ->withInput(Input::except('captcha'));
         }
 
+        $donator_desc = " ";
+
         if(Input::get('donator_type') == 'Alumni') {
             $donator_desc = 'COURSE:'.Input::get('donator_course').' YEAR:'.Input::get('donator_year');
         }
         else if(Input::get('donator_type') == 'Friend') {
             $donator_desc = Input::get('friend_name');
         }
-        
+
         Donation::create([
             'first_name' => Input::get('first_name'),
             'middle_name' => Input::get('middle_name'),
@@ -44,11 +46,16 @@ class DonateController extends BaseController
             'donator_type' => Input::get('donator_type'),
             'donator_desc' => $donator_desc,
             'project' => Input::get('project'),
-            'ip_address' => Request::getClientIp(),
-            'amount' => Input::get('amount')
+            'payment_option' => Input::get('payment_option'),
+            'branch_name' => Input::get('branch_name'),
+            'transaction_number' => Input::get('transaction_number'),
+            'transaction_datetime' => Input::get('transaction_datetime'),
+            'amount' => Input::get('amount'),
+            'ip_address' => Request::getClientIp()
         ]);
 
         Session::flush();
+        Session::flash('success', 'Your donation details has been submitted successfully. The billing personnels will verify your transaction.');
         return Redirect::to('donate');
     }
 }

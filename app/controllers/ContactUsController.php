@@ -7,4 +7,9 @@ class ContactUsController extends BaseController
 	{
 		return View::make('pages.contact-us');
 	}
+
+	public function showList()
+	{
+		return View::make('pages.list');
+	}
 }

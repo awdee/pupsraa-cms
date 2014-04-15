@@ -30,8 +30,12 @@ class CreateDonationTable extends Migration {
 	        $table->string('donator_type', 6);
 	        $table->string('donator_desc');
 	        $table->string('project');
-	        $table->string('ip_address', 15);
+	        $table->string('payment_option', 20);
+	        $table->string('branch_name');
+	        $table->string('transaction_number');
+	        $table->string('transaction_datetime');
 	        $table->double('amount', 15, 2);
+	        $table->string('ip_address', 15);
 	        $table->timestamps();
 		});
 	}

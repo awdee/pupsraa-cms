@@ -19,20 +19,20 @@
     <div class="wrap">
         <div class="grid-container">
             <div class="grid-20">
-                <div class="nav-sidebar" style="margin-top:40px; text-align:right;">
+                <div class="nav-sidebar">
                     <h4>Related Links</h4>
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active" style="border-bottom: 1px solid #ddd;">
+                    <ul class="nav nav-pills nav-stacked rel-links">
+                        <li class="active">
                             <a href="{{ url('donate') }}">
                             Donate
                             </a>
                         </li>
-                        <li style="border-bottom: 1px solid #ddd;">
+                        <li>
                             <a href="{{ url('donate/procedure') }}">
                             Donation Procedure
                             </a>
                         </li>
-                        <li style="border-bottom: 1px solid #ddd;">
+                        <li>
                             <a href="{{ url('donate/tally') }}">
                             Donation Tally Sheet
                             </a>
@@ -51,6 +51,12 @@
                     <div class="alert alert-danger alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         {{ Session::get('error') }}
+                    </div>
+                    @endif
+                    @if(Session::has('success'))
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ Session::get('success') }}
                     </div>
                     @endif
                     <table>
@@ -417,15 +423,44 @@
                             <td>
                                 <select class="form-control" size="1" title="" name="project">
                                     <option value="">Select a project..</option>
-                                    <option value="oplan-panulat">Oplan Panulat</option>
+                                    <option value="Oplan Panulat">Oplan Panulat</option>
                                 </select>
                                 <small><a title="Select your preferred alumni project" href="{{ url('whats-up/projects') }}" target="_top">View Alumni Projects</a></small>
                             </td>
                         </tr>
                         <tr>
+                            <td class="form-label">Payment Option:</td>
+                            <td>
+                                <select class="form-control" size="1" title="" name="payment_option">
+                                    <option value="">Choose one..</option>
+                                    <option value="Bank Deposit">Bank Deposit</option>
+                                    <option value="Money Transfer">Money Transfer</option>
+                                    <option value="Courier Services">Courier Services</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">Branch Name:</td>
+                            <td>
+                                <input class="form-control" type="text" id="branch_name" name="branch_name" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">Transaction Number:</td>
+                            <td>
+                                <input class="form-control" type="text" id="transaction_number" name="transaction_number" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">Date and Time of Deposit:</td>
+                            <td>
+                                <input class="form-control" type="text" id="transaction_datetime" name="transaction_datetime" required>
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="form-label">Amount:</td>
                             <td>
-                                <input class="form-control" type="text" id="amount" name="amount">
+                                <input class="form-control" type="text" id="amount" name="amount" required>
                             </td>
                         </tr>
                         <tr>
@@ -447,7 +482,7 @@
                     </table>
                     <hr>
                     <center>
-                        <button class="sun2-flower-button">Reset Fields</button>
+                        <button class="sun2-flower-button reset" onclick="resetForm(); return false;">Reset Fields</button>
                         <button type="submit" class="lei-flat-button">Submit</button>
                     </center>
                     {{ Form::close() }}
@@ -491,5 +526,8 @@
             $("#friend").hide();
         }
     });
+    var resetForm = function() {
+        $('#donation-form').find("input[type=text], textarea").val("");
+    }
 </script>
 </html>

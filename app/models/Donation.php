@@ -22,7 +22,12 @@ class Donation extends \Eloquent {
         'donator_type',
         'donator_desc',
         'project',
-        'amount'
+        'payment_option',
+        'branch_name',
+        'transaction_number',
+        'transaction_datetime',
+        'amount',
+        'ip_address'
     ];
 
 }
